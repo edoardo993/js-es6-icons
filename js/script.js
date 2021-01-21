@@ -30,34 +30,23 @@ icons.forEach(element => {
 });
 
 // Milestone 2:
-// - Definire un array di colori e associare ad ogni tipo di icona un colore.
-// - Visualizzare le icone di colore diverso in base al tipo.
+// Definire un array di colori e associare ad ogni tipo di icona un colore.       DONE
+// Visualizzare le icone di colore diverso in base al tipo.
 
 const colors=['blue', 'orange', 'violet'];
+const iconsTypes=[];
+const fasContainer=document.getElementsByClassName('fas');
 icons.forEach(element=>{
-    if(element.type==='animals'){
-        element.color=colors[0]
-    }else if(element.type==='food'){
-        element.color=colors[1]
-    }else{
-        element.color=colors[2]
+    if(!iconsTypes.includes(element.type)){
+        iconsTypes.push(element.type)
     }
 });
-// const blueIcons=icons.filter((element=>{
-//     return element.family==='animals'
-// }));
-// const orangeIcons=icons.filter((element=>{
-//     return element.family==='food'
-// }));
-// const violetIcons=icons.filter((element=>{
-//     return element.family==='person'
-// }));
-// blueIcons.forEach((element)=>{
-//     const {color}=element;
-    
-// })
+icons.forEach(element=>{
+    const indexType=iconsTypes.indexOf(element.type);
+    element.color=colors[indexType]
+});
 
 // Milestone 3:
-// - Aggiungere una select per filtrare le icone in base al tipo.
+// - Aggiungere una select per filtrare le icone in base al tipo.       DONE
 // - Popolare le options della select dinamicamente e, ogni volta che cambia
 //   il valore selezionato, visualizzare le icone corrispondenti.
