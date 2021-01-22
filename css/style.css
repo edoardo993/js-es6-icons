@@ -4,17 +4,18 @@
     box-sizing: border-box
 }
 body{
-    background: #DDDDDD
+    background: #FAEBD7
 }
 .title{
-    height: 40px;
-    color: #55AED8;
-    line-height: 40px;
+    height: 60px;
+    color: #89c7e4;
+    line-height: 60px;
     background: #fff;
-    padding-left: 10px
+    padding-left: 50px;
+    font-family: 'Lobster', cursive
 }
 .options-container{
-    background-color: #55AED8;
+    background: #89c7e4;
     height: 40px;
     color: #fff;
     text-align: center;
@@ -31,19 +32,78 @@ body{
 }
 .container-flex div{
     border: 1px solid #ccc;
-    width: 250px;
+    width: 15%;  /*width: 250px;*/
     text-align: center;
     padding: 14px 0 14px 0;
     border-radius: 7px;
     box-shadow: 1px 1px 1px #ccc;
-    background: #fff
+    background: #fff;
+    margin: 40px 30px 20px 30px
 }
 .container-flex p{
     font-size: 11px
 }
 .container-flex i{
-    font-size: 25px
+    font-size: 25px;
+    margin-bottom: 8px;
 }
 select{
     width:90px
 }
+label{
+    font-family: 'Architects Daughter', cursive;
+    padding-right: 10px
+}
+.hide{
+    display: none
+}
+.show{
+    display: inline-block
+}
+.opacity{
+    opacity: 20%
+}
+@media screen and (max-width: 991px){
+    .container-flex div{
+        width: 20%;
+        text-align: center;
+        padding: 17px 0 14px 0;
+        border-radius: 7px
+    }
+}
+@media screen and (max-width: 767px){
+    .container-flex div{
+        width: 30%;
+        text-align: center;
+        border-radius: 7px;
+        margin: 0 0 10px 0;
+        padding: 7px 0 7px 0
+    }
+}
+@media screen and (max-width: 575px){
+    .container-flex div{
+        width: 50%;
+        text-align: center;
+        padding: 17px 0 14px 0;
+        border-radius: 7px;
+        margin: 17px 0 17px 0
+    }
+    .container-flex p{
+        font-size: 9px
+    }
+    .container-flex i{
+        font-size: 22px
+    }
+    select{
+        width:70px
+    }
+    label{
+        font-size: 13px;
+    }
+    .title{
+        height: 50px;
+        text-align: center;
+        padding: 5px
+    }
+}
+  

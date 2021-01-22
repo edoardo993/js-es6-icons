@@ -4,28 +4,30 @@
 // - Utilizzando la funzione forEach e il template literal,
 //   visualizzare in pagina tutte le icone con il proprio nome.      DONE
 
+let prefix='fa';
+let family='fas';
 const icons=[
-    {'name': 'cat', 'prefix': 'fa', 'type': 'Animals', 'family': 'fas'},
-    {'name': 'crow', 'prefix': 'fa', 'type': 'Animals', 'family': 'fas'},
-    {'name': 'dog', 'prefix': 'fa', 'type': 'Animals', 'family': 'fas'},
-    {'name': 'dove', 'prefix': 'fa', 'type': 'Animals', 'family': 'fas'},
-    {'name': 'dragon', 'prefix': 'fa', 'type': 'Animals', 'family': 'fas'},
-    {'name': 'carrot', 'prefix': 'fa', 'type': 'Food', 'family': 'fas'},
-    {'name': 'lemon', 'prefix': 'fa', 'type': 'Food', 'family': 'fas'},
-    {'name': 'pepper-hot', 'prefix': 'fa', 'type': 'Food', 'family': 'fas'},
-    {'name': 'apple-alt', 'prefix': 'fa', 'type': 'Food', 'family': 'fas'},
-    {'name': 'pizza-slice', 'prefix': 'fa', 'type': 'Food', 'family': 'fas'},
-    {'name': 'user-astronaut', 'prefix': 'fa', 'type': 'Person', 'family': 'fas'},
-    {'name': 'user-graduate', 'prefix': 'fa', 'type': 'Person', 'family': 'fas'},
-    {'name': 'user-ninja', 'prefix': 'fa', 'type': 'Person', 'family': 'fas'},
-    {'name': 'user-nurse', 'prefix': 'fa', 'type': 'Person', 'family': 'fas'},
-    {'name': 'user-secret', 'prefix': 'fa', 'type': 'Person', 'family': 'fas'}
+    {'name': 'cat', prefix, 'type': 'Animals', family},
+    {'name': 'crow', prefix, 'type': 'Animals', family},
+    {'name': 'dog', prefix, 'type': 'Animals', family},
+    {'name': 'dove', prefix, 'type': 'Animals', family},
+    {'name': 'dragon', prefix, 'type': 'Animals', family},
+    {'name': 'carrot', prefix, 'type': 'Food', family},
+    {'name': 'lemon', prefix, 'type': 'Food', family},
+    {'name': 'pepper-hot', prefix, 'type': 'Food', family},
+    {'name': 'apple-alt', prefix, 'type': 'Food', family},
+    {'name': 'pizza-slice', prefix, 'type': 'Food', family},
+    {'name': 'user-astronaut', prefix, 'type': 'Person', family},
+    {'name': 'user-graduate', prefix, 'type': 'Person', family},
+    {'name': 'user-ninja', prefix, 'type': 'Person', family},
+    {'name': 'user-nurse', prefix, 'type': 'Person', family},
+    {'name': 'user-secret', prefix, 'type': 'Person', family}
 ];
 const fontContainer=document.getElementsByClassName('container-flex')[0];
 // icons.forEach(element => {
 //     fontContainer.innerHTML+=`
 //     <div class="${element.name}">
-//         <i class="${element.family} ${element.prefix}-${element.name}" style="margin-bottom:8px"></i>
+//         <i class="${element.family} ${element.prefix}-${element.name}"></i>
 //         <p>${element.name.toUpperCase()}</p>
 //     </div>
 //     `
@@ -35,7 +37,7 @@ const fontContainer=document.getElementsByClassName('container-flex')[0];
 // Definire un array di colori e associare ad ogni tipo di icona un colore.       DONE
 // Visualizzare le icone di colore diverso in base al tipo.       DONE
 
-const colors=['blue', 'orange', 'violet'];
+const colors=['blue', 'orange', 'darkviolet'];
 const iconsTypes=[];
 const fasContainer=document.getElementsByClassName('fas');
 icons.forEach(element=>{
@@ -51,8 +53,8 @@ icons.forEach(element=>{
 });
 icons.forEach(element => {
     fontContainer.innerHTML+=`
-    <div class="${element.name}">
-        <i class="${element.family} ${element.prefix}-${element.name}" style="margin-bottom:8px; color:${element.color}"></i>
+    <div class="${element.name} click">
+        <i class="${element.family} ${element.prefix}-${element.name}" style="color:${element.color}"></i>
         <p>${element.name.toUpperCase()}</p>
     </div>
     `
@@ -61,7 +63,7 @@ icons.forEach(element => {
 // Milestone 3:
 // Aggiungere una select per filtrare le icone in base al tipo.       DONE
 // Popolare le options della select dinamicamente e, ogni volta che cambia
-//    il valore selezionato, visualizzare le icone corrispondenti.        DO
+//    il valore selezionato, visualizzare le icone corrispondenti.        DONE
 
 const choiceList=document.getElementById('type-icons-choice');
 iconsTypes.forEach((element) => {
@@ -76,10 +78,47 @@ $('#type-icons-choice').change(function() {
         if(valueSelected===element.type){
             fontContainer.innerHTML+=`
             <div class="${element.name}">
-                <i class="${element.family} ${element.prefix}-${element.name}" style="margin-bottom:8px; color:${element.color}"></i>
+                <i class="${element.family} ${element.prefix}-${element.name}" style="color:${element.color}"></i>
                 <p>${element.name.toUpperCase()}</p>
             </div>
             `
         }
-    });
+        if(valueSelected==='all'){
+            fontContainer.innerHTML+=`
+            <div class="${element.name}">
+                <i class="${element.family} ${element.prefix}-${element.name}" style="color:${element.color}"></i>
+                <p>${element.name.toUpperCase()}</p>
+            </div>
+            `
+        }
+    })
+});
+// ----------------------- COMPLETED ------------------------
+
+
+// EXTRA
+$('.click').click(function(){
+    if($(this).hasClass('show')){
+        $(this).removeClass('show');
+        $('.click').removeClass('hide');
+        $('.caption').addClass('hide')
+    }else{
+        $(this).addClass('show');
+        $('.click').addClass('hide');
+        $(this).append('<p class="caption"></p>')
+    }
 })
+
+
+
+// $('.click').click(function(){
+//     if($(this).hasClass('show')){
+//         $(this).removeClass('show');
+//         $('.click').removeClass('opacity');
+//         $('.caption').addClass('hide')
+//     }else{
+//         $(this).addClass('show');
+//         $('.click').addClass('opacity');
+//         $(this).append('<p class="caption"></p>')
+//     }
+// })
