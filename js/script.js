@@ -97,17 +97,17 @@ $('#type-icons-choice').change(function() {
 
 
 // EXTRA
-$('.click').click(function(){
-    if($(this).hasClass('show')){
-        $(this).removeClass('show');
-        $('.click').removeClass('hide');
-        $('.caption').addClass('hide')
-    }else{
-        $(this).addClass('show');
-        $('.click').addClass('hide');
-        $(this).append('<p class="caption"></p>')
-    }
-})
+// $('.click').click(function(){
+//     if($(this).hasClass('show')){
+//         $(this).removeClass('show');
+//         $('.click').removeClass('hide');
+//         $('.caption').addClass('hide')
+//     }else{
+//         $(this).addClass('show');
+//         $('.click').addClass('hide');
+//         $(this).append('<p class="caption"></p>')
+//     }
+// })
 
 
 
